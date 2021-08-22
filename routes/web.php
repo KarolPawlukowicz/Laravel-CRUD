@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/employees', [EmployeeController::class, 'index']);
+Route::post('/employees', [EmployeeController::class, 'store']);
+Route::get('/employees/create', [EmployeeController::class, 'create']);
+Route::get('/employees/{employee}/edit', [EmployeeController::class, 'edit']);
+Route::put('/employees/{employee}', [EmployeeController::class, 'update']);
+Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy']);
+
